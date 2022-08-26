@@ -25,7 +25,8 @@ export class LoginComponent implements OnInit {
   saveLoginForm() {
     console.log(this.myForm.value);
     this.authService.login(this.myForm.value).subscribe((res) => {
-      console.log(res);
+      // console.log(res);
+      localStorage.setItem('user', JSON.stringify(this.authService.user));
     });
     // this.router.navigateByUrl('/task');
   }
