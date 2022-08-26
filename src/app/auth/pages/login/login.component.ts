@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthService } from 'src/app/services/auth.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-login',
@@ -25,10 +26,18 @@ export class LoginComponent implements OnInit {
   saveLoginForm() {
     console.log(this.myForm.value);
     this.authService.login(this.myForm.value).subscribe((res) => {
-      // console.log(res);
-      localStorage.setItem('user', JSON.stringify(this.authService.user));
+      console.log(res);
+      if (res == true) {
+        localStorage.setItem('user', JSON.stringify(this.authService.user));
+        this.router.navigateByUrl('/task');
+      } else {
+        Swal.fire({
+          icon: 'error',
+          title: 'Oops! Something went wrong',
+          text: res,
+        });
+      }
     });
-    // this.router.navigateByUrl('/task');
   }
 
   isDirty(val: string): boolean {

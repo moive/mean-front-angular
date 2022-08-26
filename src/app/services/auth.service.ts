@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { map, tap } from 'rxjs';
+import { catchError, map, of, tap } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
@@ -28,7 +28,8 @@ export class AuthService {
           this._user = null;
         }
       }),
-      map((res) => res.ok)
+      map((res) => res.ok),
+      catchError((err) => of(err.error.msg))
     );
   }
 }
