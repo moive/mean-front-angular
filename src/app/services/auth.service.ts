@@ -22,7 +22,7 @@ export class AuthService {
           this._user = {
             id: res.id,
             username: res.username,
-            tocken: res.tocken,
+            token: res.token,
           };
         } else {
           this._user = null;
