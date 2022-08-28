@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { AuthService } from 'src/app/services/auth.service';
+import { TaskService } from 'src/app/services/task.service';
 
 @Component({
   selector: 'app-main',
@@ -7,11 +7,15 @@ import { AuthService } from 'src/app/services/auth.service';
   styleUrls: ['./main.component.scss'],
 })
 export class MainComponent implements OnInit {
+  tasks: Array<any> = [];
   user: any;
 
-  constructor(private authService: AuthService) {}
+  constructor(private taskService: TaskService) {}
 
   ngOnInit(): void {
-    this.user = JSON.parse(localStorage.getItem('user') || '');
+    this.user = this.taskService.user;
+    this.taskService.all().subscribe((res) => {
+      this.tasks = res.tasks;
+    });
   }
 }
