@@ -14,7 +14,25 @@
   </div>
 </nav>
 <main class="container">
-  <ul>
-    <li *ngFor="let task of tasks">{{ task.name }}</li>
-  </ul>
+  <table>
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th class="aright">Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let task of tasks">
+        <td>{{ task.name }}</td>
+        <td class="aright">
+          <a class="btn-floating yellow accent-4 mr"
+            ><i class="material-icons">edit</i></a
+          >
+          <a class="btn-floating red darken-1"
+            ><i class="material-icons">delete</i></a
+          >
+        </td>
+      </tr>
+    </tbody>
+  </table>
 </main>
