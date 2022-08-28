@@ -1,40 +1,66 @@
 <div>
   <h2>Register</h2>
   <div class="row">
-    <form class="col s12">
+    <form (ngSubmit)="saveRegisterForm()" [formGroup]="myForm" class="col s12">
       <div class="row">
         <div class="input-field col s12">
-          <input id="username" type="text" class="validate" />
-          <label for="username">Username</label>
+          <input
+            id="username"
+            type="text"
+            class="validate"
+            formControlName="username"
+          />
+          <label for="username" [class.active]="isDirty('username')"
+            >Username</label
+          >
           <span class="helper-text" data-error="wrong" data-success="right"
             >Example name</span
           >
         </div>
         <div class="input-field col s12">
-          <input id="email" type="email" class="validate" />
-          <label for="email">Email</label>
+          <input
+            id="email"
+            type="email"
+            class="validate"
+            formControlName="email"
+          />
+          <label for="email" [class.active]="isDirty('email')">Email</label>
           <span class="helper-text" data-error="wrong" data-success="right"
             >email@example.com</span
           >
         </div>
         <div class="input-field col s12">
-          <input id="password" type="password" class="validate" />
-          <label for="password">Password</label>
+          <input
+            id="password"
+            type="password"
+            class="validate"
+            formControlName="password"
+          />
+          <label for="password" [class.active]="isDirty('password')"
+            >Password</label
+          >
           <span class="helper-text" data-error="wrong" data-success="right"
             >Password</span
           >
         </div>
         <div class="input-field col s12">
-          <input id="confirm-password" type="password" class="validate" />
-          <label for="confirm-password">Confirm password</label>
+          <input
+            id="confirmPassword"
+            type="password"
+            class="validate"
+            formControlName="confirmPassword"
+          />
+          <label
+            for="confirmPassword"
+            [class.active]="isDirty('confirmPassword')"
+            >Confirm password</label
+          >
           <span class="helper-text" data-error="wrong" data-success="right"
             >Confirm password</span
           >
         </div>
         <div class="input-field col s12">
-          <button type="button" class="waves-effect waves-light btn">
-            Save
-          </button>
+          <button class="waves-effect waves-light btn">Save</button>
         </div>
         <div class="input-field col s12">
           <a routerLink="/auth/login">Go Login</a>

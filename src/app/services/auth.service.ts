@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { catchError, map, Observable, of, tap } from 'rxjs';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root',
@@ -13,10 +14,19 @@ export class AuthService {
   }
   constructor(private httpClient: HttpClient) {}
 
-  private url = `http://localhost:5000/auth/login`;
+  private baseUrl = environment.baseUrl;
+  private urlLogin = `${this.baseUrl}/auth/login`;
+  private urlRegister = `${this.baseUrl}/auth/register`;
 
   login(data: any) {
-    return this.httpClient.post<any>(this.url, data).pipe(
+    return this.loadApi(this.urlLogin, data);
+  }
+  register(data: any) {
+    return this.loadApi(this.urlRegister, data);
+  }
+
+  private loadApi(url: string, data: any) {
+    return this.httpClient.post<any>(url, data).pipe(
       tap((res) => {
         if (res.ok) {
           this._user = {
