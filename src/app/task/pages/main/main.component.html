@@ -1,3 +1,20 @@
-<ul>
-  <li *ngFor="let task of tasks">{{ task.name }}</li>
-</ul>
+<nav>
+  <div class="nav-wrapper">
+    <a href="#!" class="brand-logo">Mean taks app</a>
+    <ul class="right hide-on-med-and-down">
+      <li><a href="#">Notifications</a></li>
+      <li><a href="#">Components</a></li>
+      <!-- Dropdown Trigger -->
+      <li>
+        <a class="dropdown-trigger" data-target="dropdown1" (click)="logout()"
+          >Logout<i class="material-icons right">arrow_drop_down</i></a
+        >
+      </li>
+    </ul>
+  </div>
+</nav>
+<main class="container">
+  <ul>
+    <li *ngFor="let task of tasks">{{ task.name }}</li>
+  </ul>
+</main>

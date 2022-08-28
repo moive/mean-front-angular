@@ -8,7 +8,7 @@
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
     "staging": "ng serve --configuration staging",
-    "g:staging":"ng build --configuration=staging"
+    "g:staging": "ng build --configuration=staging"
   },
   "private": true,
   "dependencies": {
