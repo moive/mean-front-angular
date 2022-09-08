@@ -168,6 +168,10 @@
               "browserTarget": "mean-front-angular:build:development",
               "serverTarget": "mean-front-angular:server:development"
             },
+            "staging": {
+              "browserTarget": "mean-front-angular:build:staging",
+              "serverTarget": "mean-front-angular:server:staging"
+            },
             "production": {
               "browserTarget": "mean-front-angular:build:production",
               "serverTarget": "mean-front-angular:server:production"
@@ -186,6 +190,10 @@
             "production": {
               "browserTarget": "mean-front-angular:build:production",
               "serverTarget": "mean-front-angular:server:production"
+            },
+            "staging": {
+              "browserTarget": "mean-front-angular:build:staging",
+              "serverTarget": "mean-front-angular:server:staging"
             },
             "development": {
               "browserTarget": "mean-front-angular:build:development",

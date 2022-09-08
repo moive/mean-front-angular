@@ -13,7 +13,7 @@
     "serve:ssr": "node dist/mean-front-angular/server/main.js",
     "build:ssr": "ng build && ng run mean-front-angular:server",
     "prerender": "ng run mean-front-angular:prerender",
-    "prerender:staging": "ng run mean-front-angular:prerender --configuration staging"
+    "prerender:staging": "ng run mean-front-angular:prerender:staging"
   },
   "private": true,
   "dependencies": {
